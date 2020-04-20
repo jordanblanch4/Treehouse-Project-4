@@ -17,14 +17,16 @@
             let randNumber = Math.floor(Math.random() * 5)
             return this.phrases[randNumber];
     };
-        // startGame(){
-        //     const overlay = document.getElementById('overlay');
-        //     overlay.style.display = 'none';
-        //     this.getRandomPhrase();
+        startGame(){
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+            this.activePhrase = this.getRandomPhrase();
+            this.activePhrase.addPhraseToDisplay();
+
 
         
         
-        // };
+        };
     }
 
 
