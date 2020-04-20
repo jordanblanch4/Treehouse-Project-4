@@ -7,7 +7,7 @@
         this.phrase = phrase.toLowerCase();
 
     }
-    addPhraseToDisplay() { //FIXME: Returning only one element
+    addPhraseToDisplay() { 
         const ul = document.querySelector('#phrase ul');
         for(let i =0; i < this.phrase.length; i++) {
             const li = document.createElement("li");
