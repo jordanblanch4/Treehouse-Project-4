@@ -19,10 +19,21 @@
         li.textContent = `${this.phrase.charAt(i)}`;
             }
     
-   
 }
     }
-        
+    checkLetter(letter) {
+        if (indexOf(letter)>-1) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+    } 
+    
+
+
+
     }
  
  
