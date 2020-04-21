@@ -22,18 +22,24 @@
 }
     }
     checkLetter(letter) {
-        if (indexOf(letter)>-1) {
+        if (this.phrase.indexOf(letter)>-1) {
             return true;
         } else {
             return false;
         }
+} 
 
+    showMatchedLetter(letter) {
+        const lis = document.getElementById('phrase').firstElementChild.children;
+        for(let i = 0; i <lis.length; i++)
+        if(lis[i].textConent === letter) {
+            li.classList.add('show');
+            li.classList.remove('hide');
 
-    } 
-    
-
+        }
 
 
     }
+     }
  
  

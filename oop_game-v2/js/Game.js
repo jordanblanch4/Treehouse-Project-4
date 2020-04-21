@@ -20,14 +20,13 @@
         startGame(){
             const overlay = document.getElementById('overlay');
             overlay.style.display = "none";
-            this.activePhrase = this.getRandomPhrase();
-            const phrase = new Phrase(this.activePhrase);
-            phrase.addPhraseToDisplay();
+            this.activePhrase = new Phrase(this.getRandomPhrase());
+            this.activePhrase.addPhraseToDisplay();
             
         };
 
         handleInteraction() {
-            
+
 
 
 
