@@ -32,7 +32,36 @@
 
         };
 
+        checkForWin() {
+            let hiddenLetter = document.querySelectorAll(".hide");
+            if(hiddenLetter.length === 0) {
+                return true;
+             } else {
+                return false;
+            }
+
+        };
+
+        removeLife() {
+            let lives = document.querySelectorAll(".tries img")
+            
+
+
+            this.missed+=1;
+            if(this.missed === 5) {
+                return game.gameOver();
+            }
+        }
+
+        gameOver() {
+
+
+        }
+   
+   
+   
     }
+
 
 
 

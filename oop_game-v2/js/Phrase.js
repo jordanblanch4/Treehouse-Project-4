@@ -30,16 +30,15 @@
 } 
 
     showMatchedLetter(letter) {
-        const lis = document.getElementById('phrase').firstElementChild.children;
-        for(let i = 0; i <lis.length; i++)
-        if(lis[i].textConent === letter) {
-            li.classList.add('show');
-            li.classList.remove('hide');
-
-        }
-
-
-    }
+    const li = document.querySelectorAll("#phrase li");
+    for (let i = 0; i< li.length; i++) {
+    if(li[i].textContent === letter) {
+        li[i].classList.remove("hide");
+        li[i].classList.add("show");
+       }
      }
+   }
+  }
+
  
  
