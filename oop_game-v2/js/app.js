@@ -21,3 +21,6 @@ letterSelection.addEventListener('click', (event) => {
     }
     
 });   
+
+
+//reset functionality

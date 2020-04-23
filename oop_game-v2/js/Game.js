@@ -26,20 +26,23 @@
         };
 
         handleInteraction(button) {
-                const keys = document.querySelectorAll('.key')
-                if(this.activePhrase.indexOf(button) === -1) {
-                    button.classList.add('wrong');
-                    this.removeLife();
-                } else{
-                    button.classList.add('chosen');
-                    this.showMatchedLetter();
-                    this.checkForWin();
-                    if(this.checkForWin) {
-                        this.gameOver();
-                    }
+            if(this.activePhrase.checkLetter(button.textContent)) {
+                //console.log(button);
+                button.classList.add("chosen");
+                this.activePhrase.showMatchedLetter(button.textContent);
+                this.checkForWin();
+                if(this.checkForWin()) {
+                    this.gameOver(true);
                 }
+                
+            }
+        else {
+            //console.log('u sucks')
+            button.classList.add('wrong');
+            this.removeLife();
 
-
+        }
+        
         }
 
         checkForWin() {
