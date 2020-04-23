@@ -25,12 +25,22 @@
             
         };
 
-        handleInteraction() {
+        handleInteraction(button) {
+                const keys = document.querySelectorAll('.key')
+                if(this.activePhrase.indexOf(button) === -1) {
+                    button.classList.add('wrong');
+                    this.removeLife();
+                } else{
+                    button.classList.add('chosen');
+                    this.showMatchedLetter();
+                    this.checkForWin();
+                    if(this.checkForWin) {
+                        this.gameOver();
+                    }
+                }
 
 
-
-
-        };
+        }
 
         checkForWin() {
             let hiddenLetter = document.querySelectorAll(".hide");
@@ -43,19 +53,24 @@
         };
 
         removeLife() {
-            let lives = document.querySelectorAll(".tries img")
+            document.getElementsByTagName('img')[this.missed].src = 'images/lostHeart.png'
             
-
-
             this.missed+=1;
             if(this.missed === 5) {
                 return game.gameOver();
             }
         }
 
-        gameOver() {
-
-
+        gameOver(gameWon) {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+            const message = document.getElementById('game-over-message');
+            
+            if(gameWon) {
+                message.textContent = "You WON!! Congratulations!!!";
+            } else {
+            message.textContent = "You're out of Lives!! That was a tough one. Better luck next time!!!"
+            }
         }
    
    

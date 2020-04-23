@@ -11,3 +11,13 @@ btnRest.addEventListener('click', (e) => {
     game.startGame();
 });
 
+
+
+const letterSelection = document.getElementById('qwerty');
+
+letterSelection.addEventListener('click', (event) => {
+ if(event.target.className === 'key') {
+    game.handleInteraction(event.target);
+    }
+    
+});   
