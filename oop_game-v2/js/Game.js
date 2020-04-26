@@ -1,6 +1,5 @@
 /* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Game.js */
+ * Game Class */
 
  class Game {
     constructor() {
@@ -17,6 +16,9 @@
             let randNumber = Math.floor(Math.random() * 5)
             return this.phrases[randNumber];
     };
+       
+        //Begins game by selecting a random phrase and displaying it to user 
+    
         startGame(){
             const overlay = document.getElementById('overlay');
             overlay.style.display = "none";
@@ -25,6 +27,11 @@
             
         };
 
+        /**
+        * Handles onscreen keyboard button clicks
+        * @param (HTMLButtonElement) button - The clicked button element
+        */
+        
         handleInteraction(button) {
             if(this.activePhrase.checkLetter(button.textContent)) {
                 //console.log(button);
@@ -34,17 +41,19 @@
                 if(this.checkForWin()) {
                     this.gameOver(true);
                 }
-                
-            }
+                 }
         else {
             //console.log('u sucks')
             button.classList.add('wrong');
             this.removeLife();
 
         }
-        
         }
 
+        /**
+        * Checks for winning move
+        * @return {boolean} True if game has been won, false if game wasn't
+        won */
         checkForWin() {
             let hiddenLetter = document.querySelectorAll(".hide");
             if(hiddenLetter.length === 0) {
@@ -54,7 +63,11 @@
             }
 
         };
-
+        /**
+        * Increases the value of the missed property
+        * Removes a life from the scoreboard
+        * Checks if player has remaining lives and ends game if player is out 
+        * **/
         removeLife() {
             document.getElementsByTagName('img')[this.missed].src = 'images/lostHeart.png'
             
@@ -64,6 +77,10 @@
             }
         }
 
+        /**
+        * Displays game over message
+        * @param {boolean} gameWon - Whether or not the user won the game
+        */
         gameOver(gameWon) {
             const overlay = document.getElementById('overlay');
             overlay.style.display = 'block';
