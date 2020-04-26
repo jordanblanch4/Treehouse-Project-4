@@ -7,6 +7,17 @@ let game;
 const btnRest = document.getElementById('btn__reset');
 
 btnRest.addEventListener('click', (e) => {
+    const phraseUL = document.getElementById('phrase').firstElementChild;
+    phraseUL.innerHTML = "";
+    const buttonEngage = document.getElementsByClassName('key');
+    for(i=0; i<buttonEngage.length; i++)
+        buttonEngage[i].classList.remove('chosen', 'wrong')
+    //reset heart images
+    
+    let lives = document.getElementsByTagName('img');
+    for(i=0; i<lives.length; i++) {
+        lives[i].src = "images/liveHeart.png"
+    }
     game = new Game();
     game.startGame();
 });
@@ -21,6 +32,3 @@ letterSelection.addEventListener('click', (event) => {
     }
     
 });   
-
-
-//reset functionality
