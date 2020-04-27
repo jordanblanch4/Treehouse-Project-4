@@ -4,7 +4,13 @@
  class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = ['Geez Louise','Party Hardy','small computer book club','Good morning Vietnam','Air trip'];
+        this.phrases = [
+        new Phrase('Geez Louise'),
+        new Phrase('Party Hardy'),
+        new Phrase('small computer book club'),
+        new Phrase('Good morning Vietnam'),
+        new Phrase('Air trip')
+    ];
         this.activePhrase = null;
     }
         
@@ -22,7 +28,7 @@
         startGame(){
             const overlay = document.getElementById('overlay');
             overlay.style.display = "none";
-            this.activePhrase = new Phrase(this.getRandomPhrase());
+            this.activePhrase = this.getRandomPhrase();
             this.activePhrase.addPhraseToDisplay();
             
         };
@@ -33,11 +39,11 @@
         */
         
         handleInteraction(button) {
+            button.disabled = true;
             if(this.activePhrase.checkLetter(button.textContent)) {
                 //console.log(button);
                 button.classList.add("chosen");
                 this.activePhrase.showMatchedLetter(button.textContent);
-                this.checkForWin();
                 if(this.checkForWin()) {
                     this.gameOver(true);
                 }
